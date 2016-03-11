@@ -11,6 +11,11 @@ import Firebase
 import CoreLocation
 import Alamofire
 import SwiftyJSON
+
+class RestaurantTableViewCell : UITableViewCell {
+    
+}
+
 class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var welcomeLabel : UILabel!
@@ -23,11 +28,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var latitude : Double!
     var longitude : Double!
     let apiConsoleInfo = YelpAPIConsole()
-    let client = YelpAPIClient()
-    var restaurantInfo = ["phone": "", "ratingimage": "", "address1": "","address2": "","status":"false","name":""]
+    var client = YelpClient!()
     var tableView = UITableView()
-    var array = ["hi", "hey", "hello"]
-    var dict = [NSObject : AnyObject]()
+    var restaurants: [Business]!
+    
+    let yelpConsumerKey = "-juUeNMM-9BHuamEp7Is7g"
+    let yelpConsumerSecret = "zFbfCqoFPBx_psI1s4cm3ah8WHM"
+    let yelpToken = "QaolEjs33uqpzC7v99fQXc1-x4TscbCu"
+    let yelpTokenSecret = "-qI4tsWdod-yHPFWCG-CAZ266t4"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchField.delegate = self
@@ -54,8 +63,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             locationManager.startUpdatingLocation()
         }
         
+        
+        
         textFieldShouldReturn(searchField)
-        //textFieldDidBeginEditing(searchField)
+        textFieldDidBeginEditing(searchField)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -85,39 +96,48 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //datasource method returning the what cell contains
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel?.text = array[indexPath.row]
+      //  cell.textLabel?.text = array[indexPath.row]
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return array.count
+        return restaurants.count
     }
     
     @IBAction func searchFood(sender : AnyObject) {
         if (searchField.text != "") {
             nameParameter = searchField.text
-            client.searchPlacesWithParameters(["term": "\(nameParameter)","ll": "\(latitude),\(longitude)","limit":"3"], successSearch: { (data, response) -> Void in
-               // print(NSString(data: data, encoding: NSUTF8StringEncoding))
-                let json = JSON(data: data)
-                
-                //self.createTableView()
-                //self.searchButton.hidden = true
-//                let name = json["businesses"][0]["name"].stringValue
-//                let phone = json["businesses"][0]["display_phone"].stringValue
-//                let openStatus = json["businesses"][0]["is_closed"].stringValue
-//                let address = json["businesses"][0]["display_address "][0].stringValue
-//                let address1 = json["businesses"][0]["display_address "][1].stringValue
-//                self.restaurantInfo.updateValue(name, forKey: "name")
-//                self.restaurantInfo.updateValue(phone, forKey: "phone")
-//                self.restaurantInfo.updateValue(openStatus, forKey: "status")
-//                self.restaurantInfo.updateValue(address, forKey: address)
-//                self.restaurantInfo.updateValue(address, forKey: address1)
-//                print(json["businesses"][0]["location"])
-                })
-                {
-                    (error) -> Void in
-                    print(error)
-                }
+//            client.searchPlacesWithParameters(["term": "\(nameParameter)","ll": "\(latitude),\(longitude)","limit":"3"], successSearch: { (data, response : AnyObject!) -> Void in
+//               // print(NSString(data: data, encoding: NSUTF8StringEncoding))
+//                let json = JSON(data: data)
+//                self.restaurants = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [NSDictionary]
+//                //self.createTableView()
+//                //self.searchButton.hidden = true
+////                let name = json["businesses"][0]["name"].stringValue
+////                let phone = json["businesses"][0]["display_phone"].stringValue
+////                let openStatus = json["businesses"][0]["is_closed"].stringValue
+////                let address = json["businesses"][0]["display_address "][0].stringValue
+////                let address1 = json["businesses"][0]["display_address "][1].stringValue
+////                self.restaurantInfo.updateValue(name, forKey: "name")
+////                self.restaurantInfo.updateValue(phone, forKey: "phone")
+////                self.restaurantInfo.updateValue(openStatus, forKey: "status")
+////                self.restaurantInfo.updateValue(address, forKey: address)
+////                self.restaurantInfo.updateValue(address, forKey: address1)
+////                print(json["businesses"][0]["location"])
+//                })
+//                {
+//                    (error) -> Void in
+//                    print(error)
+//                }
+                    client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
+            
+                    client.searchWithTerm("\(nameParameter)", latitude: latitude, longitude: longitude, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+                        self.restaurants = businesses
+                        self.createTableView()
+                        self.searchButton.hidden = true
+                        self.tableView.reloadData()
+                    })
+            
             }
             
     }

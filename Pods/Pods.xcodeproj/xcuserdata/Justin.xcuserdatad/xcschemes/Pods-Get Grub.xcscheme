@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E734004F9D5FE8E60023D03E'
+               BlueprintIdentifier = 'B8DA21117D3C5F48BC4AE0CA'
                BlueprintName = 'Pods-Get Grub'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Get_Grub.framework'>

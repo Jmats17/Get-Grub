@@ -4,7 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>AFNetworking.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>BDBOAuth1Manager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,7 +57,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0037686E02A1CADE3B65FD27AFFE9C2D</key>
+		<key>0487BAC0EF9920C34630A011AE2E262A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,12 +67,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>38AF2C5A838F696A0549EC0C5A51B5A3</key>
+		<key>23F09A16D31D9EDFD627E0011417CC2E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>677E2189A13849DB400A9DA5897A05B2</key>
+		<key>2BA285F3D832A957825FD10C3A8A46A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4878C70B21CA37D7CB8A476BF986741B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,17 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8B7DABACAB9B999430C8D9BED82B217E</key>
+		<key>AE6A4AC269D91F7FF73F67FEEEF0FC11</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC03A871635F0889AD3B650EC0B85A51</key>
+		<key>B4BF290F6FBF9EEABAB29EF46A646CD4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>B7AC9326D819482593FE118E915409D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D77A0B688551570F329E8B7344A3F0A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
