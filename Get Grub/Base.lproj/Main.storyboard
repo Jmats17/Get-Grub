@@ -60,9 +60,13 @@
                                     <constraint firstAttribute="height" constant="142" id="w8m-gY-0AI"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gZl-zu-m74">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gZl-zu-m74">
                                 <rect key="frame" x="20" y="327" width="560" height="273"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="SWB-6X-n8D"/>
+                                    <constraint firstAttribute="height" constant="273" id="lPs-2P-Nfj"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="94" id="AcL-dd-Jde" customClass="BusinessCell" customModule="Get_Grub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="560" height="94"/>
@@ -186,10 +190,14 @@
                             <constraint firstItem="bVb-4H-4tP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8jv-wp-EJB"/>
                             <constraint firstItem="U0x-ey-Jhz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Ow-Cp-6Zd"/>
                             <constraint firstItem="U0x-ey-Jhz" firstAttribute="top" secondItem="bVb-4H-4tP" secondAttribute="bottom" constant="8" id="DFR-Ux-w50"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gZl-zu-m74" secondAttribute="trailing" id="EKx-h5-YmK"/>
                             <constraint firstItem="jYE-56-rs7" firstAttribute="top" secondItem="U0x-ey-Jhz" secondAttribute="bottom" constant="8" id="Mj9-00-pX8"/>
+                            <constraint firstItem="gZl-zu-m74" firstAttribute="top" secondItem="sZv-sG-azj" secondAttribute="bottom" constant="8" id="WJQ-nH-Qmf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="sZv-sG-azj" secondAttribute="trailing" id="d1a-ls-SbW"/>
                             <constraint firstAttribute="leadingMargin" secondItem="sZv-sG-azj" secondAttribute="leading" id="ip6-V8-h5S"/>
                             <constraint firstItem="bVb-4H-4tP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="nTL-Rz-IV9"/>
+                            <constraint firstItem="gZl-zu-m74" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pt8-XP-s4C"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="gZl-zu-m74" secondAttribute="leading" id="vyR-T5-HBK"/>
                         </constraints>
                     </view>
                     <connections>

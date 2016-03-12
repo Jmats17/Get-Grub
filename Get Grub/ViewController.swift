@@ -26,7 +26,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     let locationManager = CLLocationManager()
     var latitude : Double!
     var longitude : Double!
-    let apiConsoleInfo = YelpAPIConsole()
     var client = YelpClient!()
     var restaurants: [Business]! = [Business]()
     @IBOutlet var tableView : UITableView!
@@ -47,7 +46,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         infoLabel.alpha = 0
         searchField.alpha = 0
         foodImage.alpha = 0
-        
+        tableView.alpha = 0
         self.locationManager.requestAlwaysAuthorization()
         
         self.locationManager.requestWhenInUseAuthorization()
@@ -81,7 +80,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             client.searchWithTerm("\(nameParameter)", latitude: latitude, longitude: longitude, completion: { (businesses: [Business]!, error: NSError!) -> Void in
                 self.restaurants = businesses
                 self.tableView.reloadData()
-
+                self.tableView.fadeIn(1, delay: 0, completion: {
+                    (finished : Bool) -> Void in
+                    
+                })
                 
             })
             
