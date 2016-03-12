@@ -21,7 +21,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     @IBOutlet var welcomeLabel : UILabel!
     @IBOutlet var infoLabel : UILabel!
     @IBOutlet var searchField : UITextField!
-    @IBOutlet var searchButton : UIButton!
     @IBOutlet var foodImage : UIImageView!
     var nameParameter : String!
     let locationManager = CLLocationManager()
@@ -29,9 +28,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var longitude : Double!
     let apiConsoleInfo = YelpAPIConsole()
     var client = YelpClient!()
-    var tableView = UITableView()
-    var restaurants: [Business]!
-    
+    var restaurants: [Business]! = [Business]()
+    @IBOutlet var tableView : UITableView!
     let yelpConsumerKey = "-juUeNMM-9BHuamEp7Is7g"
     let yelpConsumerSecret = "zFbfCqoFPBx_psI1s4cm3ah8WHM"
     let yelpToken = "QaolEjs33uqpzC7v99fQXc1-x4TscbCu"
@@ -39,19 +37,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchField.delegate = self
         tableView.dataSource = self
         tableView.delegate   = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100
-        
+        tableView.estimatedRowHeight = 120.0
         welcomeLabel.alpha = 0
         infoLabel.alpha = 0
         searchField.alpha = 0
-        searchButton.alpha = 0
         foodImage.alpha = 0
-        searchButton.layer.borderColor = UIColor.blackColor().CGColor
-        searchButton.layer.borderWidth = 1.0
         
         self.locationManager.requestAlwaysAuthorization()
         
@@ -63,7 +58,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             locationManager.startUpdatingLocation()
         }
         
-        
+       
         
         textFieldShouldReturn(searchField)
         textFieldDidBeginEditing(searchField)
@@ -78,25 +73,31 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
         textField.resignFirstResponder()
+        if (searchField.text != "") {
+            nameParameter = searchField.text
+            
+            client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
+            
+            client.searchWithTerm("\(nameParameter)", latitude: latitude, longitude: longitude, completion: { (businesses: [Business]!, error: NSError!) -> Void in
+                self.restaurants = businesses
+                self.tableView.reloadData()
+
+                
+            })
+            
+        }
         return true
     }
     
-    func createTableView() {
-        tableView.frame = CGRectMake(UIScreen.mainScreen().bounds.origin.x, searchField.frame.origin.y + searchField.frame.height , searchField.frame.width, (UIScreen.mainScreen().bounds.height / 2))
-        
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        self.view.addSubview(tableView)
-    }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        tableView.removeFromSuperview()
-        self.searchButton.hidden = false
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //datasource method returning the what cell contains
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as UITableViewCell
-      //  cell.textLabel?.text = array[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("BusinessCell") as! BusinessCell
+        let business = restaurants[indexPath.row]
+        cell.setFields(business)
         return cell
     }
     
@@ -104,43 +105,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         return restaurants.count
     }
     
-    @IBAction func searchFood(sender : AnyObject) {
-        if (searchField.text != "") {
-            nameParameter = searchField.text
-//            client.searchPlacesWithParameters(["term": "\(nameParameter)","ll": "\(latitude),\(longitude)","limit":"3"], successSearch: { (data, response : AnyObject!) -> Void in
-//               // print(NSString(data: data, encoding: NSUTF8StringEncoding))
-//                let json = JSON(data: data)
-//                self.restaurants = NSKeyedUnarchiver.unarchiveObjectWithData(data) as! [NSDictionary]
-//                //self.createTableView()
-//                //self.searchButton.hidden = true
-////                let name = json["businesses"][0]["name"].stringValue
-////                let phone = json["businesses"][0]["display_phone"].stringValue
-////                let openStatus = json["businesses"][0]["is_closed"].stringValue
-////                let address = json["businesses"][0]["display_address "][0].stringValue
-////                let address1 = json["businesses"][0]["display_address "][1].stringValue
-////                self.restaurantInfo.updateValue(name, forKey: "name")
-////                self.restaurantInfo.updateValue(phone, forKey: "phone")
-////                self.restaurantInfo.updateValue(openStatus, forKey: "status")
-////                self.restaurantInfo.updateValue(address, forKey: address)
-////                self.restaurantInfo.updateValue(address, forKey: address1)
-////                print(json["businesses"][0]["location"])
-//                })
-//                {
-//                    (error) -> Void in
-//                    print(error)
-//                }
-                    client = YelpClient(consumerKey: yelpConsumerKey, consumerSecret: yelpConsumerSecret, accessToken: yelpToken, accessSecret: yelpTokenSecret)
-            
-                    client.searchWithTerm("\(nameParameter)", latitude: latitude, longitude: longitude, completion: { (businesses: [Business]!, error: NSError!) -> Void in
-                        self.restaurants = businesses
-                        self.createTableView()
-                        self.searchButton.hidden = true
-                        self.tableView.reloadData()
-                    })
-            
-            }
-            
-    }
+    
     
     override func viewDidAppear(animated: Bool) {
         self.welcomeLabel.fadeIn(2, delay: 0.1, completion: {
@@ -159,10 +124,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             (finished : Bool) -> Void in
             
         })
-        self.searchButton.fadeIn(2, delay: 1.4, completion: {
-            (finished : Bool) -> Void in
-            
-        })
+       
         
     }
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		382CE413D04B7FBB42A1920B /* Pods_Get_Grub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95ACA784C7E5D46DC797C669 /* Pods_Get_Grub.framework */; };
-		D0212A841C8A6DF200D0ACA7 /* YelpAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0212A831C8A6DF200D0ACA7 /* YelpAPIClient.swift */; };
 		D03A79C81C8916E400266400 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03A79C71C8916E400266400 /* UIViewExtensions.swift */; };
 		D03A79CC1C8924A800266400 /* restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png in Resources */ = {isa = PBXBuildFile; fileRef = D03A79CB1C8924A800266400 /* restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png */; };
 		D052D4E01C88FCD10073737C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052D4DF1C88FCD10073737C /* AppDelegate.swift */; };
@@ -21,6 +20,7 @@
 		D0EFFEF81C8A734900217AD5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EFFEF71C8A734900217AD5 /* CoreLocation.framework */; };
 		D0EFFEFB1C92466100217AD5 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFFEFA1C92466100217AD5 /* YelpClient.swift */; };
 		D0EFFEFD1C92473400217AD5 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFFEFC1C92473400217AD5 /* Business.swift */; };
+		D0FB0D8A1C948189006D274F /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB0D891C948189006D274F /* BusinessCell.swift */; };
 		F750BD5FF4BF5D3B73484882 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A199C1909D0FCAF6C702B692 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,6 @@
 		75C118DE1DC9C2893C868BAF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		95ACA784C7E5D46DC797C669 /* Pods_Get_Grub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Get_Grub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A199C1909D0FCAF6C702B692 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0212A831C8A6DF200D0ACA7 /* YelpAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpAPIClient.swift; sourceTree = "<group>"; };
 		D03A79C71C8916E400266400 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D03A79CB1C8924A800266400 /* restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png"; sourceTree = "<group>"; };
 		D052D4DC1C88FCD10073737C /* Get Grub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get Grub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +63,7 @@
 		D0EFFEF71C8A734900217AD5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D0EFFEFA1C92466100217AD5 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		D0EFFEFC1C92473400217AD5 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		D0FB0D891C948189006D274F /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
 		D6227A80DC798CC7B713C69A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -148,11 +148,10 @@
 			isa = PBXGroup;
 			children = (
 				D052D4DF1C88FCD10073737C /* AppDelegate.swift */,
-				D052D4E11C88FCD10073737C /* ViewController.swift */,
-				D0EFFEFA1C92466100217AD5 /* YelpClient.swift */,
-				D0EFFEFC1C92473400217AD5 /* Business.swift */,
-				D03A79C71C8916E400266400 /* UIViewExtensions.swift */,
-				D0212A831C8A6DF200D0ACA7 /* YelpAPIClient.swift */,
+				D0FB0D8E1C94830D006D274F /* Models */,
+				D0FB0D8B1C9482D0006D274F /* ViewControllers */,
+				D0FB0D8C1C9482DC006D274F /* Cells */,
+				D0FB0D8D1C948300006D274F /* API */,
 				D052D4E31C88FCD10073737C /* Main.storyboard */,
 				D052D4E61C88FCD10073737C /* Assets.xcassets */,
 				D052D4E81C88FCD10073737C /* LaunchScreen.storyboard */,
@@ -178,6 +177,39 @@
 				D052D5011C88FCD10073737C /* Info.plist */,
 			);
 			path = "Get GrubUITests";
+			sourceTree = "<group>";
+		};
+		D0FB0D8B1C9482D0006D274F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D052D4E11C88FCD10073737C /* ViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D0FB0D8C1C9482DC006D274F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D0FB0D891C948189006D274F /* BusinessCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		D0FB0D8D1C948300006D274F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				D0EFFEFA1C92466100217AD5 /* YelpClient.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		D0FB0D8E1C94830D006D274F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0EFFEFC1C92473400217AD5 /* Business.swift */,
+				D03A79C71C8916E400266400 /* UIViewExtensions.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -363,9 +395,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FB0D8A1C948189006D274F /* BusinessCell.swift in Sources */,
 				D0EFFEFB1C92466100217AD5 /* YelpClient.swift in Sources */,
 				D052D4E21C88FCD10073737C /* ViewController.swift in Sources */,
-				D0212A841C8A6DF200D0ACA7 /* YelpAPIClient.swift in Sources */,
 				D0EFFEFD1C92473400217AD5 /* Business.swift in Sources */,
 				D03A79C81C8916E400266400 /* UIViewExtensions.swift in Sources */,
 				D052D4E01C88FCD10073737C /* AppDelegate.swift in Sources */,
