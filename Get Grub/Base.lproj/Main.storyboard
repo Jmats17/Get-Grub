@@ -357,6 +357,7 @@
                         <outlet property="searchField" destination="sZv-sG-azj" id="QWB-zC-6Ho"/>
                         <outlet property="tableView" destination="gZl-zu-m74" id="Ovc-lG-bXA"/>
                         <outlet property="welcomeLabel" destination="bVb-4H-4tP" id="HCG-RE-8wB"/>
+                        <segue destination="D8v-U0-y1F" kind="show" identifier="searchToGroup" id="rfv-GS-a8H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

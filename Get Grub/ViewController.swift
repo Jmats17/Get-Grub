@@ -34,6 +34,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     let yelpToken = "QaolEjs33uqpzC7v99fQXc1-x4TscbCu"
     let yelpTokenSecret = "-qI4tsWdod-yHPFWCG-CAZ266t4"
     var ref = Firebase(url:"https://get-grub.firebaseio.com")
+    let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid")
+
     var userDictionary : NSDictionary!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,10 +69,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     func grabUsersName() {
-        let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid")
         let usersRef = ref.childByAppendingPath("users/")
         usersRef.observeEventType(.Value, withBlock: { snapshot in
-            self.userDictionary = snapshot.value.objectForKey(uid!)! as! NSDictionary
+            self.userDictionary = snapshot.value.objectForKey(self.uid!)! as! NSDictionary
             let username = self.userDictionary["displayName"]! as! String
             self.welcomeLabel.text = "Welcome, \(username)"
             
@@ -79,6 +80,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
                 print(error.description)
         })
        
+    }
+    
+    func createGroup(restaurantName : String, restaurantAddress : String) {
+        let groupID = randomAlphaNumericString(10)
+        let groupsRef = ref.childByAppendingPath("groups/")
+        let usersRef = ref.childByAppendingPath("users/\(uid!)/")
+        let groupMembers = [
+            uid!
+        ]
+        let groupInfo = [
+            "restaurantName" : restaurantName,
+            "restaurantAddress" : restaurantAddress,
+            
+        ]
+        let groupsUsersIn = [
+            groupID
+        
+        ]
+        
+        usersRef.childByAppendingPath("groups").setValue(groupsUsersIn)
+        groupsRef.childByAppendingPath(groupID).setValue(groupInfo)
+        groupsRef.childByAppendingPath(groupID).childByAppendingPath("members").setValue(groupMembers)
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -107,6 +130,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             
         }
         return true
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow
+        let selectedCell = tableView.cellForRowAtIndexPath(indexPath!) as! BusinessCell
+        
+        createGroup(selectedCell.nameLabel.text!, restaurantAddress: selectedCell.addressLabel.text!)
+        
+        self.performSegueWithIdentifier("searchToGroup", sender: nil)
     }
     
     
