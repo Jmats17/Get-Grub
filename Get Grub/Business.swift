@@ -11,6 +11,9 @@ import UIKit
 class Business: NSObject {
     let name: String?
     let address: String?
+    let state: String?
+    let zipCode: String?
+    let city: String?
     let imageURL: NSURL?
     let categories: String?
     let distance: String?
@@ -29,6 +32,10 @@ class Business: NSObject {
         
         let location = dictionary["location"] as? NSDictionary
         var address = ""
+        var state = ""
+        var city = ""
+        var zipCode = ""
+
         if location != nil {
             let addressArray = location!["address"] as? NSArray
             if addressArray != nil && addressArray!.count > 0 {
@@ -42,8 +49,18 @@ class Business: NSObject {
                 }
                 address += neighborhoods![0] as! String
             }
+            state = (location!["state_code"] as? String)!
+            
+            zipCode = (location!["postal_code"] as? String)!
+            
+            city = (location!["city"] as? String)!
         }
         self.address = address
+        self.city = city
+        self.state = state
+        self.zipCode = zipCode
+        
+        
         
         let categoriesArray = dictionary["categories"] as? [[String]]
         if categoriesArray != nil {

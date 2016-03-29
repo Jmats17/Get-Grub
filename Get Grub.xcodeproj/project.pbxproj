@@ -21,6 +21,11 @@
 		D0EFFEFB1C92466100217AD5 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFFEFA1C92466100217AD5 /* YelpClient.swift */; };
 		D0EFFEFD1C92473400217AD5 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFFEFC1C92473400217AD5 /* Business.swift */; };
 		D0FB0D8A1C948189006D274F /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB0D891C948189006D274F /* BusinessCell.swift */; };
+		D0FB0D971C951397006D274F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB0D961C951397006D274F /* CreateAccountViewController.swift */; };
+		D0FB0D991C9513A2006D274F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FB0D981C9513A2006D274F /* LoginViewController.swift */; };
+		D0FFA2F81CA9F6DA00564EE8 /* GroupGrubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFA2F71CA9F6DA00564EE8 /* GroupGrubViewController.swift */; };
+		D0FFA2FA1CA9FAC600564EE8 /* social.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FFA2F91CA9FAC600564EE8 /* social.png */; };
+		D0FFA2FC1CA9FB2C00564EE8 /* link.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FFA2FB1CA9FB2C00564EE8 /* link.png */; };
 		F750BD5FF4BF5D3B73484882 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A199C1909D0FCAF6C702B692 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +69,11 @@
 		D0EFFEFA1C92466100217AD5 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		D0EFFEFC1C92473400217AD5 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		D0FB0D891C948189006D274F /* BusinessCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessCell.swift; sourceTree = "<group>"; };
+		D0FB0D961C951397006D274F /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		D0FB0D981C9513A2006D274F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D0FFA2F71CA9F6DA00564EE8 /* GroupGrubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupGrubViewController.swift; sourceTree = "<group>"; };
+		D0FFA2F91CA9FAC600564EE8 /* social.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = social.png; sourceTree = "<group>"; };
+		D0FFA2FB1CA9FB2C00564EE8 /* link.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = link.png; sourceTree = "<group>"; };
 		D6227A80DC798CC7B713C69A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +127,8 @@
 		D03A79CA1C89249900266400 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D0FFA2FB1CA9FB2C00564EE8 /* link.png */,
+				D0FFA2F91CA9FAC600564EE8 /* social.png */,
 				D03A79CB1C8924A800266400 /* restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png */,
 			);
 			name = Resources;
@@ -148,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				D052D4DF1C88FCD10073737C /* AppDelegate.swift */,
+				D0FB0D951C951212006D274F /* Utility */,
 				D0FB0D8E1C94830D006D274F /* Models */,
 				D0FB0D8B1C9482D0006D274F /* ViewControllers */,
 				D0FB0D8C1C9482DC006D274F /* Cells */,
@@ -183,6 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				D052D4E11C88FCD10073737C /* ViewController.swift */,
+				D0FB0D961C951397006D274F /* CreateAccountViewController.swift */,
+				D0FB0D981C9513A2006D274F /* LoginViewController.swift */,
+				D0FFA2F71CA9F6DA00564EE8 /* GroupGrubViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -210,6 +226,13 @@
 				D03A79C71C8916E400266400 /* UIViewExtensions.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D0FB0D951C951212006D274F /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +343,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03A79CC1C8924A800266400 /* restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png in Resources */,
+				D0FFA2FA1CA9FAC600564EE8 /* social.png in Resources */,
 				D052D4EA1C88FCD10073737C /* LaunchScreen.storyboard in Resources */,
 				D052D4E71C88FCD10073737C /* Assets.xcassets in Resources */,
 				D052D4E51C88FCD10073737C /* Main.storyboard in Resources */,
+				D0FFA2FC1CA9FB2C00564EE8 /* link.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,11 +421,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0FB0D8A1C948189006D274F /* BusinessCell.swift in Sources */,
+				D0FFA2F81CA9F6DA00564EE8 /* GroupGrubViewController.swift in Sources */,
 				D0EFFEFB1C92466100217AD5 /* YelpClient.swift in Sources */,
 				D052D4E21C88FCD10073737C /* ViewController.swift in Sources */,
 				D0EFFEFD1C92473400217AD5 /* Business.swift in Sources */,
 				D03A79C81C8916E400266400 /* UIViewExtensions.swift in Sources */,
+				D0FB0D971C951397006D274F /* CreateAccountViewController.swift in Sources */,
 				D052D4E01C88FCD10073737C /* AppDelegate.swift in Sources */,
+				D0FB0D991C9513A2006D274F /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

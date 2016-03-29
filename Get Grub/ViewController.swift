@@ -33,7 +33,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     let yelpConsumerSecret = "zFbfCqoFPBx_psI1s4cm3ah8WHM"
     let yelpToken = "QaolEjs33uqpzC7v99fQXc1-x4TscbCu"
     let yelpTokenSecret = "-qI4tsWdod-yHPFWCG-CAZ266t4"
-    
+    var ref = Firebase(url:"https://get-grub.firebaseio.com")
+    var userDictionary : NSDictionary!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +43,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         tableView.delegate   = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120.0
+        grabUsersName()
         welcomeLabel.alpha = 0
         infoLabel.alpha = 0
         searchField.alpha = 0
@@ -59,8 +61,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
        
         
+        
         textFieldShouldReturn(searchField)
         textFieldDidBeginEditing(searchField)
+    }
+    
+    func grabUsersName() {
+        let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid")
+        let usersRef = ref.childByAppendingPath("users/")
+        usersRef.observeEventType(.Value, withBlock: { snapshot in
+            self.userDictionary = snapshot.value.objectForKey(uid!)! as! NSDictionary
+            let username = self.userDictionary["displayName"]! as! String
+            self.welcomeLabel.text = "Welcome, \(username)"
+            
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+       
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -128,6 +146,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         })
        
         
+        
+    }
+    
+    func randomAlphaNumericString(length: Int) -> String {
+        
+        let allowedChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let allowedCharsCount = UInt32(allowedChars.characters.count)
+        var randomString = ""
+        
+        for _ in (0..<length) {
+            let randomNum = Int(arc4random_uniform(allowedCharsCount))
+            let newCharacter = allowedChars[allowedChars.startIndex.advancedBy(randomNum)]
+            randomString += String(newCharacter)
+        }
+        
+        return randomString
     }
 
     override func didReceiveMemoryWarning() {

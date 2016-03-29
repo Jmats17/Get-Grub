@@ -17,7 +17,7 @@ class BusinessCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    @IBOutlet weak var dollazLabel: UILabel!
+    @IBOutlet weak var dollarsLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,11 +41,11 @@ class BusinessCell: UITableViewCell {
         
         nameLabel.text = business.name
         numReviewsLabel.text = "\(business.reviewCount!) reviews"
-        addressLabel.text = business.address
+        addressLabel.text = "\(business.address!), \(business.city!),\(business.state!) \(business.zipCode!)"
         categoryLabel.text = business.categories
         distanceLabel.text = business.distance
         
-        dollazLabel.text = "$$"
+        dollarsLabel.text = "$$"
     }
 
 }
