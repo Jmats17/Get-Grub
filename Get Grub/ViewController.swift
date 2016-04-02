@@ -35,7 +35,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     let yelpTokenSecret = "-qI4tsWdod-yHPFWCG-CAZ266t4"
     var ref = Firebase(url:"https://get-grub.firebaseio.com")
     let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid")
-
+    var groupID : String!
+    
     var userDictionary : NSDictionary!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +84,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     }
     
     func createGroup(restaurantName : String, restaurantAddress : String) {
-        let groupID = randomAlphaNumericString(10)
+        groupID = randomAlphaNumericString(10)
         let groupsRef = ref.childByAppendingPath("groups/")
         let usersRef = ref.childByAppendingPath("users/\(uid!)/")
         let groupMembers = [
@@ -102,6 +103,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         usersRef.childByAppendingPath("groups").setValue(groupsUsersIn)
         groupsRef.childByAppendingPath(groupID).setValue(groupInfo)
         groupsRef.childByAppendingPath(groupID).childByAppendingPath("members").setValue(groupMembers)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "searchtodate") {
+            let setTimeViewController = segue.destinationViewController as! SetTimeViewController
+            let groupsID = groupID
+            setTimeViewController.groupID = groupsID
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -138,7 +148,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         
         createGroup(selectedCell.nameLabel.text!, restaurantAddress: selectedCell.addressLabel.text!)
         
-        self.performSegueWithIdentifier("searchToGroup", sender: nil)
+        self.performSegueWithIdentifier("searchtodate", sender: nil)
     }
     
     

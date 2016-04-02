@@ -8,10 +8,16 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class GroupGrubViewController : UIViewController {
     
-    
+    var ref = Firebase(url:"https://get-grub.firebaseio.com")
+
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var restaurantNameLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var restaurantAddressLabel: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

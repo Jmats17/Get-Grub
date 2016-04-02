@@ -26,6 +26,8 @@
 		D0FFA2F81CA9F6DA00564EE8 /* GroupGrubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFA2F71CA9F6DA00564EE8 /* GroupGrubViewController.swift */; };
 		D0FFA2FA1CA9FAC600564EE8 /* social.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FFA2F91CA9FAC600564EE8 /* social.png */; };
 		D0FFA2FC1CA9FB2C00564EE8 /* link.png in Resources */ = {isa = PBXBuildFile; fileRef = D0FFA2FB1CA9FB2C00564EE8 /* link.png */; };
+		D0FFA2FE1CAA174400564EE8 /* GroupGrubNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFA2FD1CAA174400564EE8 /* GroupGrubNameCell.swift */; };
+		D0FFA3001CAA1A5500564EE8 /* SetTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FFA2FF1CAA1A5500564EE8 /* SetTimeViewController.swift */; };
 		F750BD5FF4BF5D3B73484882 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A199C1909D0FCAF6C702B692 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +76,8 @@
 		D0FFA2F71CA9F6DA00564EE8 /* GroupGrubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupGrubViewController.swift; sourceTree = "<group>"; };
 		D0FFA2F91CA9FAC600564EE8 /* social.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = social.png; sourceTree = "<group>"; };
 		D0FFA2FB1CA9FB2C00564EE8 /* link.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = link.png; sourceTree = "<group>"; };
+		D0FFA2FD1CAA174400564EE8 /* GroupGrubNameCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupGrubNameCell.swift; sourceTree = "<group>"; };
+		D0FFA2FF1CAA1A5500564EE8 /* SetTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetTimeViewController.swift; sourceTree = "<group>"; };
 		D6227A80DC798CC7B713C69A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,6 +203,7 @@
 				D0FB0D961C951397006D274F /* CreateAccountViewController.swift */,
 				D0FB0D981C9513A2006D274F /* LoginViewController.swift */,
 				D0FFA2F71CA9F6DA00564EE8 /* GroupGrubViewController.swift */,
+				D0FFA2FF1CAA1A5500564EE8 /* SetTimeViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				D0FB0D891C948189006D274F /* BusinessCell.swift */,
+				D0FFA2FD1CAA174400564EE8 /* GroupGrubNameCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -420,10 +426,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0FFA3001CAA1A5500564EE8 /* SetTimeViewController.swift in Sources */,
 				D0FB0D8A1C948189006D274F /* BusinessCell.swift in Sources */,
 				D0FFA2F81CA9F6DA00564EE8 /* GroupGrubViewController.swift in Sources */,
 				D0EFFEFB1C92466100217AD5 /* YelpClient.swift in Sources */,
 				D052D4E21C88FCD10073737C /* ViewController.swift in Sources */,
+				D0FFA2FE1CAA174400564EE8 /* GroupGrubNameCell.swift in Sources */,
 				D0EFFEFD1C92473400217AD5 /* Business.swift in Sources */,
 				D03A79C81C8916E400266400 /* UIViewExtensions.swift in Sources */,
 				D0FB0D971C951397006D274F /* CreateAccountViewController.swift in Sources */,
