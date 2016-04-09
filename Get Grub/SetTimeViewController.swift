@@ -38,7 +38,6 @@ class SetTimeViewController : UIViewController {
     }
     
     override func viewDidLoad() {
-        print(groupID)
         goButton.layer.borderColor = UIColor.blackColor().CGColor
         goButton.layer.borderWidth = 2.0
         

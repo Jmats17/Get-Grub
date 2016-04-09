@@ -43,6 +43,7 @@ class LoginViewController : UIViewController {
                     } else {
                         // We are now logged in
                         self.performSegueWithIdentifier("logintomain", sender: nil)
+                        
                     }
             })
         }

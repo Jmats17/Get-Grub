@@ -17,7 +17,7 @@ class RestaurantTableViewCell : UITableViewCell {
 }
 
 class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
-    
+    @IBOutlet var groupsButton : UIButton!
     @IBOutlet var welcomeLabel : UILabel!
     @IBOutlet var infoLabel : UILabel!
     @IBOutlet var searchField : UITextField!
@@ -40,7 +40,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
     var userDictionary : NSDictionary!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchField.delegate = self
         tableView.dataSource = self
         tableView.delegate   = self
@@ -69,6 +68,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         textFieldDidBeginEditing(searchField)
     }
     
+    @IBAction func goToGroups(sender : AnyObject) {
+        self.performSegueWithIdentifier("searchtogroups", sender: nil)
+    }
+    
     func grabUsersName() {
         let usersRef = ref.childByAppendingPath("users/")
         usersRef.observeEventType(.Value, withBlock: { snapshot in
@@ -88,7 +91,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
         let groupsRef = ref.childByAppendingPath("groups/")
         let usersRef = ref.childByAppendingPath("users/\(uid!)/")
         let groupMembers = [
-            uid!
+            "\(uid!)": true
         ]
         let groupInfo = [
             "restaurantName" : restaurantName,
@@ -96,11 +99,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, UITextFieldDe
             
         ]
         let groupsUsersIn = [
-            groupID
+            "\(groupID)" : true
         
         ]
         
-        usersRef.childByAppendingPath("groups").setValue(groupsUsersIn)
+        usersRef.childByAppendingPath("groups").updateChildValues(groupsUsersIn)
         groupsRef.childByAppendingPath(groupID).setValue(groupInfo)
         groupsRef.childByAppendingPath(groupID).childByAppendingPath("members").setValue(groupMembers)
         

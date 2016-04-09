@@ -15,19 +15,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let ref = Firebase(url: "https://get-grub.firebaseio.com/")
-    let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && ref.childByAppendingPath("users").childByAppendingPath(uid).authData != nil {
+        
+        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil {
+            let uid = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
+            if ref.childByAppendingPath("users").childByAppendingPath(uid).authData != nil {
+                self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                
+                let initialViewController = storyboard.instantiateViewControllerWithIdentifier("search")
+                
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        else {
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             
-            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("search")
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("login")
             
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }
+        
+       
         return true
     }
 

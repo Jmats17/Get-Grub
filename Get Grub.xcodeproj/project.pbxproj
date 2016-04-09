@@ -17,6 +17,8 @@
 		D052D4EA1C88FCD10073737C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D052D4E81C88FCD10073737C /* LaunchScreen.storyboard */; };
 		D052D4F51C88FCD10073737C /* Get_GrubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052D4F41C88FCD10073737C /* Get_GrubTests.swift */; };
 		D052D5001C88FCD10073737C /* Get_GrubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D052D4FF1C88FCD10073737C /* Get_GrubUITests.swift */; };
+		D0C616A61CB35763009DE39B /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C616A51CB35763009DE39B /* GroupsViewController.swift */; };
+		D0C616A81CB3582E009DE39B /* GroupsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C616A71CB3582E009DE39B /* GroupsCell.swift */; };
 		D0EFFEF81C8A734900217AD5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EFFEF71C8A734900217AD5 /* CoreLocation.framework */; };
 		D0EFFEFB1C92466100217AD5 /* YelpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFFEFA1C92466100217AD5 /* YelpClient.swift */; };
 		D0EFFEFD1C92473400217AD5 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EFFEFC1C92473400217AD5 /* Business.swift */; };
@@ -67,6 +69,8 @@
 		D052D4FB1C88FCD10073737C /* Get GrubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Get GrubUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D052D4FF1C88FCD10073737C /* Get_GrubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get_GrubUITests.swift; sourceTree = "<group>"; };
 		D052D5011C88FCD10073737C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0C616A51CB35763009DE39B /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		D0C616A71CB3582E009DE39B /* GroupsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsCell.swift; sourceTree = "<group>"; };
 		D0EFFEF71C8A734900217AD5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D0EFFEFA1C92466100217AD5 /* YelpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YelpClient.swift; sourceTree = "<group>"; };
 		D0EFFEFC1C92473400217AD5 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
@@ -204,6 +208,7 @@
 				D0FB0D981C9513A2006D274F /* LoginViewController.swift */,
 				D0FFA2F71CA9F6DA00564EE8 /* GroupGrubViewController.swift */,
 				D0FFA2FF1CAA1A5500564EE8 /* SetTimeViewController.swift */,
+				D0C616A51CB35763009DE39B /* GroupsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 			children = (
 				D0FB0D891C948189006D274F /* BusinessCell.swift */,
 				D0FFA2FD1CAA174400564EE8 /* GroupGrubNameCell.swift */,
+				D0C616A71CB3582E009DE39B /* GroupsCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -432,8 +438,10 @@
 				D0EFFEFB1C92466100217AD5 /* YelpClient.swift in Sources */,
 				D052D4E21C88FCD10073737C /* ViewController.swift in Sources */,
 				D0FFA2FE1CAA174400564EE8 /* GroupGrubNameCell.swift in Sources */,
+				D0C616A81CB3582E009DE39B /* GroupsCell.swift in Sources */,
 				D0EFFEFD1C92473400217AD5 /* Business.swift in Sources */,
 				D03A79C81C8916E400266400 /* UIViewExtensions.swift in Sources */,
+				D0C616A61CB35763009DE39B /* GroupsViewController.swift in Sources */,
 				D0FB0D971C951397006D274F /* CreateAccountViewController.swift in Sources */,
 				D052D4E01C88FCD10073737C /* AppDelegate.swift in Sources */,
 				D0FB0D991C9513A2006D274F /* LoginViewController.swift in Sources */,
