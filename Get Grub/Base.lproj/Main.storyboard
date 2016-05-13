@@ -469,7 +469,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="121" id="lm0-Ly-f11" customClass="GroupsCell" customModule="Get_Grub" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GroupsCell" rowHeight="121" id="lm0-Ly-f11" customClass="GroupsCell" customModule="Get_Grub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lm0-Ly-f11" id="9vR-ru-7xS">
@@ -502,6 +502,10 @@
                                                 <constraint firstItem="9iy-L1-M2y" firstAttribute="top" secondItem="naL-Hf-Gnw" secondAttribute="bottom" constant="8" symbolic="YES" id="zwa-3t-aR3"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="restaurantNameLabel" destination="naL-Hf-Gnw" id="5RV-Gi-GuK"/>
+                                            <outlet property="timeLabel" destination="9iy-L1-M2y" id="1Qd-Bn-0yw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

@@ -11,7 +11,6 @@ import UIKit
 import AFNetworking
 import BDBOAuth1Manager
 
-// You can register for Yelp API keys here: http://www.yelp.com/developers/manage_api_keys
 let yelpConsumerKey = "-juUeNMM-9BHuamEp7Is7g"
 let yelpConsumerSecret = "zFbfCqoFPBx_psI1s4cm3ah8WHM"
 let yelpToken = "QaolEjs33uqpzC7v99fQXc1-x4TscbCu"

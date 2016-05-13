@@ -11,6 +11,8 @@ import UIKit
 
 class GroupsCell : UITableViewCell {
     
+    @IBOutlet var restaurantNameLabel : UILabel!
+    @IBOutlet var timeLabel : UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
